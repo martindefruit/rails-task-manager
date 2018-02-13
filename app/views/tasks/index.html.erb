@@ -1,0 +1,28 @@
+
+<div class="list_container">
+<h1>Your tasks</h1>
+
+<div class="task_list">
+<% @tasks.each do |task| %>
+<div class="task">
+   <% if task.completed == true %>
+      <i class="fas fa-check-square"></i>
+  <% else  %>
+      <i class="fas fa-square"></i>
+  <% end %>
+<%= link_to task.title, task_path(task) %>
+<%= link_to "edit", edit_task_path(task.id), class: 'custom-btn' %>
+<%= link_to "delete", task_path(task.id), method: :delete, class: 'custom-btn' %>
+
+
+
+  </div>
+
+<% end %>
+</div>
+
+<%= link_to "add a task", new_task_path, class: 'btn btn-primary' %>
+
+
+
+</div>
